@@ -39,7 +39,15 @@
             <option value="published" {{ $course->status == 'published' ? 'selected' : '' }}>Đã xuất bản</option>
         </select>
     </div>
-
+    
+    <div class="mb-3">
+    <label>Video URL</label>
+    <input 
+        class="form-control" 
+        name="video_url" 
+        value="{{ old('video_url', $course->video_url) }}" 
+        placeholder="Nhập link video (YouTube, Vimeo...)">
+    </div>  
     <div class="mb-3">
         <label>Ảnh</label>
         <input type="file" name="image">

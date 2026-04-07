@@ -54,7 +54,7 @@ class CourseController extends Controller
     {
         // dùng validated cho an toàn
         $data = $request->validated();
-
+        
         // tạo slug
         $data['slug'] = Str::slug($request->name);
 

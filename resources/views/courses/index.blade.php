@@ -25,10 +25,11 @@
 <tr>
     <th>Tên</th>
     <th>Giá</th>
-    <th>Mô tả</th> {{-- 🔥 thêm --}}
+    <th>Mô tả</th>
     <th>Học viên</th>
     <th>Trạng thái</th>
     <th>Ảnh</th>
+    <th>Video</th>
     <th>Hành động</th>
 </tr>
 
@@ -38,7 +39,6 @@
 
     <td>{{ number_format($c->price) }}</td>
 
-    {{-- 🔥 HIỂN THỊ MÔ TẢ --}}
     <td>
         {{ \Illuminate\Support\Str::limit($c->description, 50) ?? 'Chưa có mô tả' }}
     </td>
@@ -56,6 +56,33 @@
     <td>
         @if($c->image)
             <img src="/uploads/{{ $c->image }}" width="80">
+        @endif
+    </td>
+
+    <!-- 🔥 VIDEO FIX CHUẨN -->
+    <td>
+        @if($c->video_url)
+            @php
+                $url = $c->video_url;
+
+                // lấy ID YouTube (hỗ trợ cả youtu.be và youtube.com)
+                preg_match('/(youtu\.be\/|v=)([^&]+)/', $url, $matches);
+                $videoId = $matches[2] ?? null;
+            @endphp
+
+            @if($videoId)
+                <!-- ✅ YouTube -->
+                <iframe width="150" height="90"
+                    src="https://www.youtube.com/embed/{{ $videoId }}"
+                    frameborder="0"
+                    allowfullscreen>
+                </iframe>
+            @else
+                <!-- ❌ Link khác -->
+                <a href="{{ $url }}" target="_blank">🔗 Xem video</a>
+            @endif
+        @else
+            Không có
         @endif
     </td>
 

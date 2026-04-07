@@ -37,6 +37,15 @@
 </div>
 
 <div class="mb-3">
+    <label>Video URL</label>
+    <input 
+        class="form-control" 
+        name="video_url" 
+        value="{{ old('video_url') }}" 
+        placeholder="Nhập link video (YouTube, Vimeo...)">
+</div>
+
+<div class="mb-3">
     <label>Trạng thái</label>
     <select class="form-control" name="status">
         <option value="">-- Chọn trạng thái --</option>

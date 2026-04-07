@@ -15,7 +15,8 @@ class Course extends Model
         'price',        // giá
         'description',  // mô tả
         'image',        // ảnh
-        'status'        // trạng thái
+        'status' ,       // trạng thái
+        'video_url' 
     ];
 
     // 1 khóa học có nhiều bài học

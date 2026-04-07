@@ -22,7 +22,9 @@ class CourseRequest extends FormRequest
 
             'status' => 'required|in:draft,published',
 
-            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+
+            'video_url' => 'nullable|url'
         ];
     }
 
