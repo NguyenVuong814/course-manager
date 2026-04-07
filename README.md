@@ -1,70 +1,172 @@
+# 🎓 Course Manager System  
+**A Web-based Course Management System for Student Enrollment and Administration**
 
-# course-manager
-=======
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+This repository provides a **web application** for managing courses, students, and enrollments, designed with a focus on:
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+- ✅ Simplicity and usability  
+- ✅ Clear data organization  
+- ✅ CRUD operations for core entities  
+- ✅ Educational and project-based development  
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🔍 Background & Motivation
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Managing courses and student enrollments manually can be inefficient and error-prone.  
+This system provides a **centralized platform** to:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Organize course information  
+- Manage student data  
+- Track enrollments efficiently  
 
-## Learning Laravel
+It is designed as a **learning project** to practice:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Backend development  
+- Database design  
+- MVC architecture  
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## ✨ Key Features
 
-## Laravel Sponsors
+- 📚 Course Management (Create, Edit, Delete)  
+- 👨‍🎓 Student Management  
+- 📝 Enrollment System  
+- ♻️ Soft Delete (Trash / Restore)  
+- 🧩 MVC structure (Laravel-style)  
+- 🗄️ Database integration  
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🧠 System Overview
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Architecture
 
-## Contributing
+```text
+User (Browser)
+   ↓
+Web Interface (Blade Views)
+   ↓
+Controller (Logic Handling)
+   ↓
+Model (Database Interaction)
+   ↓
+Database (MySQL)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+// tree
+course-manager/
+│
+├── app/
+│   ├── Http/Controllers/    # Controllers (logic)
+│
+├── resources/
+│   ├── views/               # Blade templates (UI)
+│       ├── courses/
+│       ├── enrollments/
+│       └── layouts/
+│
+├── routes/
+│   ├── web.php              # Web routes
+│   ├── api.php
+│
+├── database/                # Migrations / seeders
+├── public/                  # Public assets
+├── storage/                 # Logs & cache
+│
+├── .env.example
+├── composer.json
+├── package.json
+└── README.md
 
-## Code of Conduct
+⚙️ Technologies Used
+🟢 PHP (Laravel Framework)
+🟡 MySQL Database
+🔵 HTML / CSS / Blade Template
+⚙️ XAMPP (Local server)
+▶️ How to Run
+1. Clone repository
+git clone https://github.com/NguyenVuong814/course-manager.git
+cd course-manager
+2. Install dependencies
+composer install
+npm install
+3. Setup environment
+cp .env.example .env
+php artisan key:generate
+4. Configure database
+Open .env
+Set DB name, user, password
+5. Run migrations
+php artisan migrate
+6. Start server
+php artisan serve
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+👉 Open: http://127.0.0.1:8000
 
-## Security Vulnerabilities
+🧪 Main Functionalities
+📚 Courses
+Add new courses
+Edit course information
+Delete / restore courses
+👨‍🎓 Students
+Manage student data
+📝 Enrollments
+Register students into courses
+View enrollment list
+📊 Database Design (ERD Overview)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Entities:
 
-## License
+students
+courses
+enrollments
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Relationships:
 
+1 Student → N Enrollments
+1 Course → N Enrollments
+🚧 Limitations
+No authentication system yet
+Basic UI (not optimized)
+No API integration
+Single-user environment
+🔮 Future Improvements
+🔐 Login / Register system (JWT/Auth)
+👑 Role-based access (Admin/User)
+🎨 Improve UI/UX
+🌐 RESTful API
+📊 Dashboard statistics
+📜 License
+
+This project is for educational purposes.
+
+🎓 Academic Use
+
+This project is suitable for:
+
+Web development practice
+Database design learning
+Course management system demos
+University assignments / mini projects
+👨‍💻 Author
+
+Nguyen Vuong
+GitHub: https://github.com/NguyenVuong814
+
+
+---
+
+# 🔥 Cách dùng ngay
+
+1. Tạo file:
+
+README.md
+
+
+2. Dán toàn bộ nội dung trên vào  
+
+3. Push lên:
+```bash
+git add README.md
+git commit -m "update README"
+git push
